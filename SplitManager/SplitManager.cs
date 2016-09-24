@@ -9,38 +9,21 @@ namespace SplitManager
 {
     interface SplitManager
     {
-        /// <summary>
-        /// Recupère le fichier
-        /// </summary>
-        /// <returns></returns>
-        File GetFile();
 
-        /// <summary>
-        /// Return names of fragmented files
-        /// </summary>
-        /// <returns></returns>
-        String GetFragsNames();
-
-        /// <summary>
-        /// Nombre maximum de fichiers à fragmenté supporter par la configuration du fragmenteur
-        /// </summary>
-        /// <returns></returns>
-        int GetMaxFragNb();
-
-        /// <summary>
-        /// Fixe les tailles des fragments de fichiers
-        /// </summary>
-        /// <returns></returns>
-        long[] GetFragsSizes();
+        FileStream File { get; set; }
+        int Max_nb_frags { get; set; }
+        String[] FragsName { get; set; }
+        long[] FragSizes { get; set; }
+        
 
         /// <summary>
         /// Check if File Valid For Split
         /// </summary>
         /// <param name="f"></param>
         /// <returns></returns>
-        bool IsFileValid(File f);
+        bool IsFileValid(FileStream f);
 
-        void setFile(File f);
+        //void setFile(FileStream f);
 
         /// <summary>
         /// Fixe la taille des fragments de fichier en fonction de la longeure donnée
@@ -48,12 +31,6 @@ namespace SplitManager
         /// ex : 1024 1024 562
         /// </summary>
         void SetFragsSize(long fragSize);
-
-        /// <summary>
-        /// Les valeurs peuvent etre différentes , on rajoute un fragment si la valeur totale est dépassée
-        /// </summary>
-        /// <param name="fragSizes"></param>
-        void SetFragsSize(long[] fragSizes);
 
 
         /// <summary>

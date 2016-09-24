@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace SplitManager
 {
-    class Program
+    class StdSplitManager
     {
-        static void Main(string[] args)
-        {
-        }
     }
 }
